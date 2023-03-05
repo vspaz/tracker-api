@@ -1,2 +1,3 @@
-pub(crate) mod health;
-pub mod handlers;
+mod health;
+mod handlers;
+pub mod server;
