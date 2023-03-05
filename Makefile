@@ -2,6 +2,10 @@ all: build
 build:
 	cargo build --workspace
 
+.PHONY: run
+run:
+	cargo run
+
 .PHONY: test
 test:
 	cargo test -- --test-threads=8
