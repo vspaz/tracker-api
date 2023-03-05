@@ -1,4 +1,4 @@
-mod server;
+mod web;
 
 fn main() {
     println!("placeholder");
