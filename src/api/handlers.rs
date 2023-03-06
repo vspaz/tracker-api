@@ -19,4 +19,6 @@ pub fn register_handlers() -> App<
         .route("/", get().to(ping))
         .route("/track", post().to(track))
         .route("/t", post().to(track))
+        .route("/page", post().to(track))
+        .route("/p", post().to(track))
 }
