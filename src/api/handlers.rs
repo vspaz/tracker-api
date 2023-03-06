@@ -1,9 +1,9 @@
 use crate::api::health::ping;
+use crate::api::segment::track;
 use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
-use crate::api::segment::track;
 
 pub fn register_handlers() -> App<
     impl ServiceFactory<
