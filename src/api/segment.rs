@@ -14,3 +14,8 @@ pub async fn page(_req: HttpRequest) -> impl Responder {
 pub async fn identify(_req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().finish()
 }
+
+#[warn(unused_variables)]
+pub async fn alias(_req: HttpRequest) -> impl Responder {
+    HttpResponse::Ok().finish()
+}
