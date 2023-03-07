@@ -5,6 +5,11 @@ use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
 
+
+fn add_api_prefix_endpoint(endpoint: &str) -> String {
+    "/api/v1/".to_owned() + endpoint
+}
+
 pub fn register_handlers() -> App<
     impl ServiceFactory<
         ServiceRequest,
@@ -15,10 +20,10 @@ pub fn register_handlers() -> App<
     >,
 > {
     App::new()
-        .route("/track", post().to(track))
-        .route("/t", post().to(track))
-        .route("/page", post().to(page))
-        .route("/p", post().to(page))
+        .route(&*add_api_prefix_endpoint("track"), post().to(track))
+        .route(&*add_api_prefix_endpoint("t"), post().to(track))
+        .route(&*add_api_prefix_endpoint("page"), post().to(page))
+        .route(&*add_api_prefix_endpoint("p"), post().to(page))
         // service endpoint
         .route("/ping/", get().to(ping))
         .route("/", get().to(ping))
