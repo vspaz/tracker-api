@@ -29,3 +29,8 @@ pub async fn screen(_req: HttpRequest) -> impl Responder {
 pub async fn batch(_req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().finish()
 }
+
+#[warn(unused_variables)]
+pub async fn import(_req: HttpRequest) -> impl Responder {
+    HttpResponse::Ok().finish()
+}
