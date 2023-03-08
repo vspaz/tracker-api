@@ -1,5 +1,5 @@
 use crate::api::health::ping;
-use crate::api::segment::{alias, identify, page, track};
+use crate::api::segment::{alias, identify, page, screen, track};
 use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
@@ -27,6 +27,8 @@ pub fn register_handlers() -> App<
         .route(&*add_api_prefix_endpoint("i"), post().to(identify))
         .route(&*add_api_prefix_endpoint("alias"), post().to(alias))
         .route(&*add_api_prefix_endpoint("a"), post().to(alias))
+        .route(&*add_api_prefix_endpoint("screen"), post().to(screen))
+        .route(&*add_api_prefix_endpoint("s"), post().to(screen))
         // service endpoint
         .route("/ping/", get().to(ping))
         .route("/", get().to(ping))
