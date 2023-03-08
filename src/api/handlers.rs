@@ -4,6 +4,7 @@ use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
+use crate::api::index;
 
 fn with_api_prefix(endpoint: &str) -> String {
     "/api/v1/".to_owned() + endpoint
@@ -19,6 +20,7 @@ pub fn register_handlers() -> App<
     >,
 > {
     App::new()
+        .route("/index", post().to(index::index))
         .route(&*with_api_prefix("track"), post().to(segment::track))
         .route(&*with_api_prefix("t"), post().to(segment::track))
         .route(&*with_api_prefix("page"), post().to(segment::page))
