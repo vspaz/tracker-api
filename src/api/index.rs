@@ -1,11 +1,5 @@
 use actix_web::{web, HttpRequest, HttpResponse, Responder};
-use serde::Serialize;
-
-#[derive(Serialize)]
-struct ResponseOk {
-    status: String,
-    message: String,
-}
+use crate::api::handlers::ResponseOk;
 
 #[warn(unused_variables)]
 pub async fn index(_req: HttpRequest) -> impl Responder {

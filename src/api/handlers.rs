@@ -5,6 +5,13 @@ use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
+use serde::Serialize;
+
+#[derive(Serialize)]
+pub struct ResponseOk {
+    pub(crate) status: String,
+    pub(crate) message: String,
+}
 
 fn with_api_prefix(endpoint: &str) -> String {
     "/api/v1/".to_owned() + endpoint
