@@ -9,8 +9,8 @@ use serde::Serialize;
 
 #[derive(Serialize)]
 pub struct ResponseOk {
-    pub(crate) status: String,
-    pub(crate) message: String,
+    pub status: String,
+    pub message: String,
 }
 
 fn with_api_prefix(endpoint: &str) -> String {
