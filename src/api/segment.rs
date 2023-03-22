@@ -51,11 +51,3 @@ pub async fn batch(_req: HttpRequest) -> impl Responder {
     });
 }
 
-#[warn(unused_variables)]
-pub async fn import(_req: HttpRequest) -> impl Responder {
-    HttpResponse::Ok().finish();
-    return web::Json(ResponseOk {
-        status: "200 OK".to_string(),
-        message: "OK".to_string(),
-    });
-}

@@ -39,7 +39,7 @@ pub fn register_handlers() -> App<
         .route(&with_api_prefix("screen/"), post().to(segment::screen))
         .route(&with_api_prefix("s/"), post().to(segment::screen))
         .route(&with_api_prefix("batch/"), post().to(segment::batch))
-        .route(&with_api_prefix("import/"), post().to(segment::import))
+        .route(&with_api_prefix("import/"), post().to(segment::batch))
         // service endpoint
         .route("/ping/", get().to(health::ping))
         .route("/", get().to(health::ping))
