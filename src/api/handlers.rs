@@ -2,9 +2,9 @@ use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
+mod health;
 mod index;
 mod segment;
-mod health;
 
 fn with_api_prefix(endpoint: &str) -> String {
     "/api/v1/".to_owned() + endpoint
