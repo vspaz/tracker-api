@@ -1,2 +1,2 @@
-mod handlers;
 pub mod app;
+mod handlers;
