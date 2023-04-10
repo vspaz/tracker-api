@@ -1,17 +1,10 @@
-use crate::api::health;
-use crate::api::index;
-use crate::api::segment;
 use actix_web::body::MessageBody;
 use actix_web::dev::{ServiceFactory, ServiceRequest, ServiceResponse};
 use actix_web::web::{get, post};
 use actix_web::{App, Error};
-use serde::Serialize;
-
-#[derive(Serialize)]
-pub struct ResponseOk {
-    pub status: String,
-    pub message: String,
-}
+mod index;
+mod segment;
+mod health;
 
 fn with_api_prefix(endpoint: &str) -> String {
     "/api/v1/".to_owned() + endpoint
