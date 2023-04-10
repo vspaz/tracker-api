@@ -1,7 +1,7 @@
 mod api;
-use crate::api::server;
+use crate::api::app;
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-    server::run().await
+    app::run().await
 }
