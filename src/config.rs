@@ -1,9 +1,9 @@
-struct Server {
+pub struct Server {
     pub host: String,
-    pub port: int,
+    pub port: i32,
 }
 
-struct Http {
+pub struct Http {
     pub server: Server
 }
 
