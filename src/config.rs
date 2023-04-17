@@ -1,11 +1,23 @@
+struct Server {
+    pub host: String,
+    pub port: int,
+}
+
+struct Http {
+    pub server: Server
+}
+
+
 pub struct Config {
-    pub server: String,
-    pub port: String,
+    pub http: Http
 }
 
 pub fn get_config() -> Config {
     Config {
-        server: "127.0.0.1".to_string(),
-        port: "9000".to_string(),
+        http: Http {
+            server: Server {
+                host: "127.0.0.1".to_string(),
+                port: 9000 },
+        },
     }
 }
