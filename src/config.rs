@@ -3,16 +3,15 @@ use std::time::Duration;
 pub struct Server {
     pub host: String,
     pub port: i32,
-    pub keep_alive: Duration
+    pub keep_alive: Duration,
 }
 
 pub struct Http {
-    pub server: Server
+    pub server: Server,
 }
 
-
 pub struct Config {
-    pub http: Http
+    pub http: Http,
 }
 
 pub fn get_config() -> Config {

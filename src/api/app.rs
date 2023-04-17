@@ -3,8 +3,12 @@ use crate::config::Config;
 use actix_web::HttpServer;
 
 pub async fn start_server(config: &Config) -> std::io::Result<()> {
-    HttpServer::new(register_handlers).keep_alive(config.http.server.keep_alive)
-        .bind(format!("{}:{}", config.http.server.host, config.http.server.port))?
+    HttpServer::new(register_handlers)
+        .keep_alive(config.http.server.keep_alive)
+        .bind(format!(
+            "{}:{}",
+            config.http.server.host, config.http.server.port
+        ))?
         .run()
         .await
 }
