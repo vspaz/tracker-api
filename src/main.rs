@@ -1,9 +1,9 @@
 mod api;
 mod config;
+use crate::config::Config;
 
 use actix_web::body::MessageBody;
 use crate::api::app;
-use crate::config::config::Config;
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
