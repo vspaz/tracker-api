@@ -3,7 +3,6 @@ pub struct Config {
     pub port: String,
 }
 
-
 pub fn get_config() -> Config {
     Config {
         server: "127.0.0.1".to_string(),
