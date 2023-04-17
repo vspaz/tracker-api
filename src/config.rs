@@ -3,7 +3,7 @@ use std::time::Duration;
 pub struct Server {
     pub host: String,
     pub port: i32,
-    keep_alive: Duration
+    pub keep_alive: Duration
 }
 
 pub struct Http {
@@ -21,7 +21,7 @@ pub fn get_config() -> Config {
             server: Server {
                 host: "127.0.0.1".to_string(),
                 port: 9000,
-                keep_alive: Duration(60 * 2),
+                keep_alive: Duration::from_secs(60 * 2),
             },
         },
     }
