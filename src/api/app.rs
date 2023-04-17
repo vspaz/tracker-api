@@ -1,6 +1,6 @@
 use crate::api::handlers::register_handlers;
-use actix_web::HttpServer;
 use crate::config::Config;
+use actix_web::HttpServer;
 
 pub async fn start_server(config: &Config) -> std::io::Result<()> {
     HttpServer::new(register_handlers)
