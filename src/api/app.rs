@@ -1,13 +1,14 @@
 use crate::api::handlers::register_handlers;
 use actix_web::HttpServer;
+use crate::config::config::Config;
 
-pub async fn start_server() -> std::io::Result<()> {
+pub async fn start_server(config: &Config) -> std::io::Result<()> {
     HttpServer::new(register_handlers)
-        .bind("127.0.0.1:8000")?
+        .bind(format!("{}:{}", config.server, config.port))?
         .run()
         .await
 }
 
-pub async fn run() -> std::io::Result<()> {
-    start_server().await
+pub async fn run(config: &Config) -> std::io::Result<()> {
+    start_server(config).await
 }
