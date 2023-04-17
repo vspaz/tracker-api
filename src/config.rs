@@ -1,6 +1,9 @@
+use std::time::Duration;
+
 pub struct Server {
     pub host: String,
     pub port: i32,
+    keep_alive: Duration
 }
 
 pub struct Http {
@@ -17,7 +20,9 @@ pub fn get_config() -> Config {
         http: Http {
             server: Server {
                 host: "127.0.0.1".to_string(),
-                port: 9000 },
+                port: 9000,
+                keep_alive: Duration(60 * 2),
+            },
         },
     }
 }
