@@ -2,7 +2,20 @@ use serde::Serialize;
 use std::any::Any;
 use std::iter::Map;
 
-pub struct Context {}
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AppInfo {
+    pub name: String,
+    pub version: String,
+    pub build: String,
+    pub namespace: String,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Context {
+    pub app_info: AppInfo,
+}
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
