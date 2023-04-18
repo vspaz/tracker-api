@@ -1,12 +1,8 @@
+use serde::Serialize;
 use std::any::Any;
 use std::iter::Map;
-use serde::Serialize;
 
-
-pub struct Context {
-
-}
-
+pub struct Context {}
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
