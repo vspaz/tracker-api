@@ -20,7 +20,7 @@ pub struct Context {
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Message {
-    pub integrations: Map<String, dyn Any>,
+    pub integrations: Map<String, String>,
     pub user_id: String,
     pub message: String,
     pub sent_at: String,
@@ -30,8 +30,8 @@ pub struct Message {
     pub event_type: String,
     pub event: String,
     pub context: Context,
-    pub properties: Map<String, dyn Any>,
+    pub properties: Map<String, String>,
     pub received_at: String,
     pub timestamp: String,
-    pub traits: Map<String, dyn Any>,
+    pub traits: Map<String, String>,
 }
