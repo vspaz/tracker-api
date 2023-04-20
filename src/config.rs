@@ -5,6 +5,7 @@ pub struct Server {
     pub port: i32,
     pub keep_alive: Duration,
     pub max_connections: i32,
+    pub worker_count: usize,
 }
 
 pub struct Http {
@@ -23,6 +24,7 @@ pub fn get_config() -> Config {
                 port: 9000,
                 keep_alive: Duration::from_secs(60 * 2),
                 max_connections: 1000,
+                worker_count: 6,
             },
         },
     }
