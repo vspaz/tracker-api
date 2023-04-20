@@ -1,6 +1,6 @@
 use serde::Serialize;
-use std::any::Any;
-use std::iter::Map;
+use std::collections::HashMap;
+
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -17,10 +17,11 @@ pub struct Context {
     pub app_info: AppInfo,
 }
 
+
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Message {
-    pub integrations: Map<String, String>,
+    pub integrations: HashMap<String, String>,
     pub user_id: String,
     pub message: String,
     pub sent_at: String,
@@ -30,8 +31,8 @@ pub struct Message {
     pub event_type: String,
     pub event: String,
     pub context: Context,
-    pub properties: Map<String, String>,
+    pub properties: HashMap<String, String>,
     pub received_at: String,
     pub timestamp: String,
-    pub traits: Map<String, String>,
+    pub traits: HashMap<String, String>,
 }
