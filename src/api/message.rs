@@ -1,7 +1,6 @@
 use serde::Serialize;
 use std::collections::HashMap;
 
-
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AppInfo {
@@ -16,7 +15,6 @@ pub struct AppInfo {
 pub struct Context {
     pub app_info: AppInfo,
 }
-
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
