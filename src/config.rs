@@ -14,6 +14,12 @@ pub struct Http {
 
 pub struct Config {
     pub http: Http,
+    pub logging: Logging,
+}
+
+pub struct Logging {
+    pub level: String,
+    pub time_format: String,
 }
 
 pub fn get_config() -> Config {
@@ -26,6 +32,10 @@ pub fn get_config() -> Config {
                 max_connections: 1000,
                 worker_count: 6,
             },
+        },
+        logging: Logging {
+            level: "info".to_string(),
+            time_format: "%Y-%m-%d %H:%M:%S.%f".to_string(),
         },
     }
 }
