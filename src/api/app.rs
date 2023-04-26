@@ -8,8 +8,8 @@ pub async fn start_server(config: &Config) -> std::io::Result<()> {
     info!("handlers configured: 'ok'");
     info!("starting server at '{}'", &host_and_port);
     app.keep_alive(config.http.server.keep_alive)
-        .workers(config.http.server.worker_count)
-        .max_connections(config.http.server.max_connections)
+        .workers(config.http.worker.count)
+        .max_connections(config.http.worker.max_connections)
         .bind(host_and_port)?
         .run()
         .await
