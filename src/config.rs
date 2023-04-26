@@ -12,9 +12,15 @@ pub struct Server {
     pub keep_alive: Duration,
 }
 
+pub struct Client {
+    pub request_timeout: i32,
+    pub shutdown_timeout: i32,
+}
+
 pub struct Http {
     pub server: Server,
     pub worker: Worker,
+    pub client: Client,
 }
 
 pub struct Config {
@@ -38,6 +44,10 @@ pub fn get_config() -> Config {
             worker: Worker {
                 max_connections: 20_000,
                 count: 6,
+            },
+            client: Client {
+                request_timeout: 10000,
+                shutdown_timeout: 5000,
             }
         },
         logging: Logging {
