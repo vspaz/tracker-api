@@ -13,8 +13,8 @@ pub struct Server {
 }
 
 pub struct Client {
-    pub request_timeout: i32,
-    pub shutdown_timeout: i32,
+    pub request_timeout: Duration,
+    pub shutdown_timeout: Duration,
 }
 
 pub struct Http {
@@ -46,8 +46,8 @@ pub fn get_config() -> Config {
                 count: 6,
             },
             client: Client {
-                request_timeout: 10000,
-                shutdown_timeout: 5000,
+                request_timeout: Duration::from_secs(10),
+                shutdown_timeout: Duration::from_secs(10),
             }
         },
         logging: Logging {
