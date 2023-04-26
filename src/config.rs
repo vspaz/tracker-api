@@ -4,7 +4,7 @@ pub struct Server {
     pub host: String,
     pub port: i32,
     pub keep_alive: Duration,
-    pub max_connections: i32,
+    pub max_connections: usize,
     pub worker_count: usize,
 }
 
