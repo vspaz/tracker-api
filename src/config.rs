@@ -1,5 +1,11 @@
 use std::time::Duration;
 
+pub struct Worker {
+    pub max_connections: usize,
+    pub count: usize,
+}
+
+
 pub struct Server {
     pub host: String,
     pub port: i32,
