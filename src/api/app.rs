@@ -7,12 +7,12 @@ pub async fn start_server(config: &Config) -> std::io::Result<()> {
     let app = HttpServer::new(register_handlers);
     info!("handlers configured: 'ok'");
     info!("starting server at '{}'", &host_and_port);
-    app.keep_alive(config.http.server.keep_alive)
-        .workers(config.worker.count)
+    app.workers(config.worker.count)
         .worker_max_blocking_threads(config.worker.threads)
         .max_connections(config.worker.max_connections)
         .client_request_timeout(config.http.client.request_timeout)
         .client_disconnect_timeout(config.http.client.shutdown_timeout)
+        .keep_alive(config.http.server.keep_alive)
         .bind(host_and_port)?
         .run()
         .await
