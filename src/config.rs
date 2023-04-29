@@ -1,8 +1,9 @@
 use std::time::Duration;
 
 pub struct Worker {
-    pub max_connections: usize,
     pub count: usize,
+    pub threads: usize,
+    pub max_connections: usize,
 }
 
 pub struct Server {
@@ -46,8 +47,9 @@ pub fn get_config() -> Config {
             },
         },
         worker: Worker {
-            max_connections: 20_000,
             count: 6,
+            threads: 8,
+            max_connections: 20_000,
         },
         logging: Logging {
             level: "info".to_string(),
