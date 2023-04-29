@@ -9,6 +9,7 @@ pub async fn start_server(config: &Config) -> std::io::Result<()> {
     info!("starting server at '{}'", &host_and_port);
     app.keep_alive(config.http.server.keep_alive)
         .workers(config.worker.count)
+        .worker_max_blocking_threads(config.worker.threads)
         .max_connections(config.worker.max_connections)
         .client_request_timeout(config.http.client.request_timeout)
         .client_disconnect_timeout(config.http.client.shutdown_timeout)
