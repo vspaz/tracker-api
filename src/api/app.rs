@@ -5,7 +5,7 @@ use actix_web::HttpServer;
 pub async fn start_server(config: &Config) -> std::io::Result<()> {
     let host_and_port = format!("{}:{}", config.http.server.host, config.http.server.port);
     let app = HttpServer::new(register_handlers);
-    info!("handlers configured: 'ok'");
+    info!("handlers configured: 'Ok'");
     info!("starting server at '{}'", &host_and_port);
     app.workers(config.worker.count)
         .worker_max_blocking_threads(config.worker.threads)
