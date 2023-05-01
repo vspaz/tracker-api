@@ -12,6 +12,14 @@ pub struct AppInfo {
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ContextLibrary {
+    pub group: String,
+    pub name: String,
+    pub version: String,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Context {
     pub app_info: AppInfo,
 }
