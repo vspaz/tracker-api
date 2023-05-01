@@ -20,6 +20,13 @@ pub struct ContextLibrary {
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ContextPage {
+    pub referrer: String,
+    pub in_iframe: Bool,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Context {
     pub app_info: AppInfo,
 }
