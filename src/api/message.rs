@@ -22,7 +22,7 @@ pub struct ContextLibrary {
 #[serde(rename_all = "camelCase")]
 pub struct ContextPage {
     pub referrer: String,
-    pub in_iframe: Bool,
+    pub in_iframe: bool,
 }
 
 #[derive(Serialize)]
