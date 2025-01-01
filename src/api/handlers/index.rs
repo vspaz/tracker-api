@@ -7,7 +7,6 @@ pub struct ResponseOk {
     pub message: String,
 }
 
-#[warn(unused_variables)]
 pub async fn index(_req: HttpRequest) -> impl Responder {
     HttpResponse::Ok().finish();
     web::Json(ResponseOk {
