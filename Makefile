@@ -17,6 +17,7 @@ style-fix:
 .PHONY: lint
 lint:
 	cargo clippy -- -D warnings
+	cargo fmt
 
 .PHONY: clean
 clean:

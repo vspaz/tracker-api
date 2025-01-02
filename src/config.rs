@@ -1,3 +1,4 @@
+use std::env;
 use std::time::Duration;
 
 pub struct Worker {
@@ -52,7 +53,7 @@ pub fn get_config() -> Config {
             max_connections: 20_000,
         },
         logging: Logging {
-            level: "info".to_string(),
+            level: env::var("LOG_LEVEL").unwrap_or_else(|_| "info".to_string()),
             time_format: "%Y-%m-%d %H:%M:%S.%f".to_string(),
         },
     }

@@ -16,6 +16,7 @@ pub fn url_dispatcher() -> App<
     >,
 > {
     App::new()
+        .wrap(actix_web::middleware::Logger::default())
         .service(
             scope("/api/v1")
                 .service(resource("/track").route(post().to(segment::track)))

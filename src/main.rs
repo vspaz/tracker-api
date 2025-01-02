@@ -13,7 +13,8 @@ async fn main() -> std::io::Result<()> {
     let log_config = LogConfigBuilder::builder()
         .time_format(&config.logging.time_format)
         .output_console()
-        .level(&config.logging.level).unwrap()
+        .level(&config.logging.level)
+        .unwrap()
         .build();
     simple_log::new(log_config).expect("failed to configure logger");
     info!("logger configured: 'Ok'");

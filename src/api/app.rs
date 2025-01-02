@@ -1,12 +1,17 @@
 use crate::api::handlers::url_dispatcher;
 use crate::config::Config;
 use actix_web::HttpServer;
+use std::process;
 
 pub async fn start_server(config: &Config) -> std::io::Result<()> {
     let host_and_port = format!("{}:{}", config.http.server.host, config.http.server.port);
     let app = HttpServer::new(url_dispatcher);
     info!("handlers configured: 'Ok'");
-    info!("starting server at '{}'", &host_and_port);
+    info!(
+        "starting server PID ({}) at '{}'",
+        process::id(),
+        &host_and_port
+    );
     app.workers(config.worker.count)
         .worker_max_blocking_threads(config.worker.threads)
         .max_connections(config.worker.max_connections)
