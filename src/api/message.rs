@@ -1,7 +1,8 @@
-use serde::Serialize;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AppInfo {
     pub name: String,
@@ -10,7 +11,7 @@ pub struct AppInfo {
     pub namespace: String,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ContextLibrary {
     pub group: String,
@@ -18,20 +19,20 @@ pub struct ContextLibrary {
     pub version: String,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ContextPage {
     pub referrer: String,
     pub in_iframe: bool,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Context {
     pub app_info: AppInfo,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Message {
     pub integrations: HashMap<String, String>,
@@ -45,7 +46,21 @@ pub struct Message {
     pub event: String,
     pub context: Context,
     pub properties: HashMap<String, String>,
-    pub received_at: String,
-    pub timestamp: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub received_at: Option<DateTime<Utc>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub timestamp: DateTime<Utc>,
     pub traits: HashMap<String, String>,
+}
+
+#[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Batch {
+    pub batch: Vec<Message>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub context: Option<Context>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub integrations: Option<HashMap<String, String>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub original_timestamp: Option<DateTime<Utc>>,
 }
