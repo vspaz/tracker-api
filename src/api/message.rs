@@ -49,7 +49,7 @@ pub struct Message {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub received_at: Option<DateTime<Utc>>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub timestamp: DateTime<Utc>,
+    pub timestamp: Option<DateTime<Utc>>,
     pub traits: HashMap<String, String>,
 }
 

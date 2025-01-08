@@ -1,4 +1,4 @@
-FROM rust:1.69-bullseye
+FROM rust:1.83-bullseye
 
 WORKDIR /tracker-api
 
@@ -12,10 +12,13 @@ RUN apt-get update && apt-get upgrade -y \
         net-tools\
         upx-ucl
 
-COPY . .
+COPY . ./
 
-RUN cargo build --release
+RUN cargo build --release && rm -rf src
 
-EXPOSE 8080
+ENV LOG_LEVEL=info
+ENV LOG_FORMAT="%Y-%m-%d %H:%M:%S.%f"
+
+EXPOSE 9000
 
 CMD ["./target/release/tracker"]

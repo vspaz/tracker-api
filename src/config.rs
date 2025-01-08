@@ -38,7 +38,7 @@ pub fn get_config() -> Config {
     Config {
         http: Http {
             server: Server {
-                host: "127.0.0.1".to_string(),
+                host: "0.0.0.0".to_string(),
                 port: 9000,
                 keep_alive: Duration::from_secs(60 * 2),
             },
@@ -54,7 +54,7 @@ pub fn get_config() -> Config {
         },
         logging: Logging {
             level: env::var("LOG_LEVEL").unwrap_or_else(|_| "info".to_string()),
-            time_format: "%Y-%m-%d %H:%M:%S.%f".to_string(),
+            time_format: env::var("LOG_FORMAT").unwrap_or_else(|_| "%Y-%m-%d %H:%M:%S.%f".to_string()),
         },
     }
 }
