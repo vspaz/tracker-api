@@ -4,7 +4,6 @@ use simple_log::LogConfigBuilder;
 
 mod api;
 mod config;
-use crate::api::app;
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
@@ -18,5 +17,5 @@ async fn main() -> std::io::Result<()> {
         .build();
     simple_log::new(log_config).expect("failed to configure logger");
     info!("logger configured: 'Ok'");
-    app::run(&config).await
+    api::app::run(&config).await
 }

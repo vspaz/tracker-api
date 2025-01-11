@@ -54,7 +54,8 @@ pub fn get_config() -> Config {
         },
         logging: Logging {
             level: env::var("LOG_LEVEL").unwrap_or_else(|_| "info".to_string()),
-            time_format: env::var("LOG_FORMAT").unwrap_or_else(|_| "%Y-%m-%d %H:%M:%S.%f".to_string()),
+            time_format: env::var("LOG_FORMAT")
+                .unwrap_or_else(|_| "%Y-%m-%d %H:%M:%S.%f".to_string()),
         },
     }
 }
