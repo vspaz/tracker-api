@@ -1,6 +1,7 @@
 use crate::api::handlers::url_dispatcher;
 use crate::config::Config;
 use actix_web::HttpServer;
+use simple_log::info;
 use std::process;
 
 pub async fn start_server(config: &Config) -> std::io::Result<()> {
